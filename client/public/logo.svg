@@ -1,0 +1,7 @@
+<svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- JOY text -->
+  <text x="60" y="35" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="2">JOY</text>
+  
+  <!-- PRODUCTIONS text -->
+  <text x="60" y="55" font-family="Arial, sans-serif" font-size="10" font-weight="normal" fill="white" text-anchor="middle" letter-spacing="4">PRODUCTIONS</text>
+</svg>

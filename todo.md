@@ -73,3 +73,14 @@
 - [x] Remove all visible controls (including play button)
 - [x] Add click-to-pause/play functionality
 - [x] Ensure no controls appear on hover or during playback
+
+## About Page Redesign
+- [x] Add Mux video background to About page
+- [x] Add content overlay with company description
+- [x] Style text overlay to match Keynote design
+- [x] Ensure video loops and auto-plays
+
+## Logo Update
+- [x] Update Joy logo to include "PRODUCTIONS" subtitle
+- [x] Match logo style from Keynote presentation
+- [x] Apply updated logo across all pages
