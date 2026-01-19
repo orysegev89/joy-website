@@ -85,30 +85,54 @@ export default function VideoCarousel() {
 
   return (
     <div className="relative w-full h-screen bg-black">
-      {/* Native HTML5 Video with HLS.js - No controls */}
-      <div 
-        className="absolute inset-0 cursor-pointer"
-        onClick={handleVideoClick}
-      >
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          disablePictureInPicture
-          controlsList="nodownload nofullscreen noremoteplayback"
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
-          className="w-full h-full"
-        />
-      </div>
+      {/* Render video or image based on type */}
+      {currentVideo.type === 'video' ? (
+        <div 
+          className="absolute inset-0 cursor-pointer"
+          onClick={handleVideoClick}
+        >
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
+            disablePictureInPicture
+            controlsList="nodownload nofullscreen noremoteplayback"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+            className="w-full h-full"
+          />
+        </div>
+      ) : (
+        <div className="absolute inset-0">
+          <img
+            src={currentVideo.imageUrl}
+            alt={currentVideo.title}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+            className="w-full h-full"
+          />
+        </div>
+      )}
 
       {/* Overlay with gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40 pointer-events-none" />
+
+      {/* Tagline Text Overlay - Only show if slide has tagline */}
+      {currentVideo.tagline && (
+        <div className="absolute left-8 md:left-16 top-1/2 -translate-y-1/2 z-10 max-w-2xl pointer-events-none">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight whitespace-pre-line">
+            {currentVideo.tagline}
+          </h1>
+        </div>
+      )}
 
       {/* Navigation Arrows */}
       <button

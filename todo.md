@@ -96,3 +96,14 @@
 - [x] Update logo SVG to match Keynote design (stylized JOY with blue glowing O and star)
 - [x] Fix Directors page layout (quote left, image right pattern)
 - [x] Ensure logo appears consistently across all pages
+
+## Homepage Tagline Overlay
+- [x] Add text overlay to video carousel: "Joy is an AI production company built by people who have spent their careers making commercials."
+- [x] Position text in left/center area matching Keynote design
+- [x] Style text with appropriate size and readability
+- [x] Add multi-line tagline support with line breaks
+
+## Static Image Carousel Slide
+- [x] Update carousel data structure to support both videos and static images
+- [x] Add rhino image as carousel slide with tagline
+- [x] Update VideoCarousel component to render both media types
