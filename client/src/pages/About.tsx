@@ -32,7 +32,10 @@ export default function About() {
           muted={true}
           loop={true}
           playsInline
+          // Disable ALL controls
           nohotkeys
+          disablePictureInPicture
+          defaultHiddenCaptions
           style={{
             width: "100%",
             height: "100%",

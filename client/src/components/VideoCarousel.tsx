@@ -51,8 +51,10 @@ export default function VideoCarousel() {
           muted={true}
           loop={true}
           playsInline
-          // Hide ALL controls
+          // Disable ALL controls
           nohotkeys
+          disablePictureInPicture
+          defaultHiddenCaptions
           style={{
             width: "100%",
             height: "100%",

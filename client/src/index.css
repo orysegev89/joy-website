@@ -177,7 +177,7 @@
 }
 /* Minimal Mux Player Styling - Hide ALL controls */
 mux-player {
-  --controls: none;
+  --controls: none !important;
   --media-object-fit: cover;
   --media-object-position: center;
 }
@@ -185,19 +185,45 @@ mux-player {
 /* Hide ALL controls including center play button */
 mux-player::part(bottom) {
   display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 mux-player::part(top) {
   display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 mux-player::part(center) {
   display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
-/* Hide controls on hover */
+mux-player::part(gesture-layer) {
+  display: none !important;
+}
+
+/* Hide controls on hover and all states */
 mux-player:hover::part(bottom),
 mux-player:hover::part(top),
-mux-player:hover::part(center) {
+mux-player:hover::part(center),
+mux-player:focus::part(bottom),
+mux-player:focus::part(top),
+mux-player:focus::part(center) {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Prevent fullscreen button from showing */
+mux-player::part(fullscreen-button) {
+  display: none !important;
+}
+
+/* Hide all media chrome elements */
+mux-player media-controller,
+mux-player media-control-bar {
   display: none !important;
 }
