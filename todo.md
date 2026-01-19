@@ -107,3 +107,8 @@
 - [x] Update carousel data structure to support both videos and static images
 - [x] Add rhino image as carousel slide with tagline
 - [x] Update VideoCarousel component to render both media types
+
+## Carousel Text Display Fix
+- [x] Remove title and director text overlays from video slides that don't have taglines
+- [x] Only show text overlay when tagline exists
+- [x] Fix rhino image path - currently showing black background instead of image

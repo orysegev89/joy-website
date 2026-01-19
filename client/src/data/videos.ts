@@ -22,7 +22,7 @@ export const videos: Video[] = [
     type: "image",
     title: "Brand Partnership",
     director: "Maurus vom Scheidt",
-    imageUrl: "/directors/maurus-rhino.png",
+    imageUrl: "/directors/rhino-box.png",
     tagline: "We work with brands who are ready to embrace AI without abandoning the creative process they trust.",
   },
   {

@@ -151,11 +151,7 @@ export default function VideoCarousel() {
         <ChevronRight className="w-8 h-8 text-white" />
       </button>
 
-      {/* Video Info */}
-      <div className="absolute bottom-32 left-8 z-10 text-white pointer-events-none">
-        <h2 className="text-4xl font-bold mb-2">{currentVideo.title}</h2>
-        <p className="text-xl text-white/80">{currentVideo.director}</p>
-      </div>
+
 
       {/* Dot Indicators */}
       <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-10 flex gap-2">
