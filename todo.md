@@ -96,3 +96,9 @@
 - [x] Update logo SVG to match Keynote design (stylized JOY with blue glowing O and star)
 - [x] Fix Directors page layout (quote left, image right pattern)
 - [x] Ensure logo appears consistently across all pages
+
+## About Page Typography Fix
+- [x] Reduce "ABOUT" title size
+- [x] Adjust body text to readable size matching Keynote
+- [x] Increase footer tagline size for prominence
+- [x] Update content to match Keynote text exactly
