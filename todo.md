@@ -102,3 +102,11 @@
 - [x] Adjust body text to readable size matching Keynote
 - [x] Increase footer tagline size for prominence
 - [x] Update content to match Keynote text exactly
+
+## Video Loading Performance Optimization (CRITICAL - DEAL BREAKER)
+- [x] Add video preloading for first video
+- [x] Implement lower initial quality for faster start
+- [x] Add preload="auto" for immediate loading
+- [x] Optimize Mux player settings for faster playback (MSE, startTime:0)
+- [x] Applied to both Homepage and About page videos
+- [x] Test loading speed

@@ -32,6 +32,10 @@ export default function About() {
           muted={true}
           loop={true}
           playsInline
+          // Performance optimizations
+          preload="auto"
+          startTime={0}
+          preferPlayback="mse"
           nohotkeys
           style={{
             width: "100%",
