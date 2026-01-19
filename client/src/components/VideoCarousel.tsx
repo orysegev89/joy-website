@@ -26,7 +26,7 @@ export default function VideoCarousel() {
 
   return (
     <div className="relative w-full h-screen bg-black">
-      {/* Mux Video Player */}
+      {/* Mux Video Player - Minimal UI */}
       <div className="absolute inset-0">
         <MuxPlayer
           key={currentVideo.id}
@@ -35,6 +35,12 @@ export default function VideoCarousel() {
           autoPlay={false}
           muted={false}
           loop={false}
+          // Minimal player controls - only center play button
+          primaryColor="#FFFFFF"
+          secondaryColor="#000000"
+          accentColor="#3B82F6"
+          // Hide all controls except the big play button
+          nohotkeys
           style={{
             width: "100%",
             height: "100%",

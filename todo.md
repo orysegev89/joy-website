@@ -62,3 +62,8 @@
 - [x] Update VideoCarousel to use Mux Player
 - [x] Add video titles and director names
 - [ ] Test video playback and carousel navigation
+
+## Video Player UI Refinement
+- [x] Hide all Mux player controls except center play button
+- [x] Remove player frame/chrome for cleaner look
+- [x] Only show play button when video is paused
