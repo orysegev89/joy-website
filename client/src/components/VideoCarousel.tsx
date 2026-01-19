@@ -7,20 +7,24 @@ export default function VideoCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
   const hlsRef = useRef<Hls | null>(null);
+  const [isVideoReady, setIsVideoReady] = useState(false);
 
   const goToPrevious = () => {
+    setIsVideoReady(false);
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? videos.length - 1 : prevIndex - 1
     );
   };
 
   const goToNext = () => {
+    setIsVideoReady(false);
     setCurrentIndex((prevIndex) =>
       prevIndex === videos.length - 1 ? 0 : prevIndex + 1
     );
   };
 
   const goToSlide = (index: number) => {
+    setIsVideoReady(false);
     setCurrentIndex(index);
   };
 
@@ -75,20 +79,34 @@ export default function VideoCarousel() {
       hls.attachMedia(video);
       
       hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        setIsVideoReady(true);
         video.play().catch(() => {
           // Auto-play might be blocked
         });
+      });
+      
+      // Preload first few segments for instant playback
+      hls.on(Hls.Events.FRAG_LOADED, () => {
+        if (!isVideoReady) {
+          setIsVideoReady(true);
+        }
       });
 
       hlsRef.current = hls;
     } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
       // Native HLS support (Safari)
       video.src = videoUrl;
-      video.addEventListener("loadedmetadata", () => {
+      const handleLoadedData = () => {
+        setIsVideoReady(true);
         video.play().catch(() => {
           // Auto-play might be blocked
         });
-      });
+      };
+      video.addEventListener("loadeddata", handleLoadedData);
+      
+      return () => {
+        video.removeEventListener("loadeddata", handleLoadedData);
+      };
     }
 
     return () => {
@@ -114,6 +132,7 @@ export default function VideoCarousel() {
             muted
             loop
             playsInline
+            preload="auto"
             disablePictureInPicture
             controlsList="nodownload nofullscreen noremoteplayback"
             style={{
@@ -123,6 +142,12 @@ export default function VideoCarousel() {
             }}
             className="w-full h-full"
           />
+          {/* Loading indicator */}
+          {!isVideoReady && (
+            <div className="absolute inset-0 flex items-center justify-center bg-black">
+              <div className="w-12 h-12 border-4 border-white/20 border-t-white rounded-full animate-spin" />
+            </div>
+          )}
         </div>
       ) : (
         <div className="absolute inset-0">
@@ -144,8 +169,8 @@ export default function VideoCarousel() {
 
       {/* Tagline Text Overlay - Only show if slide has tagline */}
       {currentVideo.tagline && (
-        <div className="absolute left-8 md:left-16 top-1/2 -translate-y-1/2 z-10 max-w-2xl pointer-events-none">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight whitespace-pre-line">
+        <div className="absolute left-4 right-4 md:left-16 md:right-auto top-1/2 -translate-y-1/2 z-10 max-w-2xl pointer-events-none">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-white leading-tight whitespace-pre-line">
             {currentVideo.tagline}
           </h1>
         </div>
@@ -154,31 +179,31 @@ export default function VideoCarousel() {
       {/* Navigation Arrows */}
       <button
         onClick={goToPrevious}
-        className="absolute left-8 top-1/2 -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-all"
+        className="absolute left-2 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-2 sm:p-3 transition-all"
         aria-label="Previous video"
       >
-        <ChevronLeft className="w-8 h-8 text-white" />
+        <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
       </button>
 
       <button
         onClick={goToNext}
-        className="absolute right-8 top-1/2 -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-all"
+        className="absolute right-2 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-2 sm:p-3 transition-all"
         aria-label="Next video"
       >
-        <ChevronRight className="w-8 h-8 text-white" />
+        <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
       </button>
 
 
 
       {/* Dot Indicators */}
-      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+      <div className="absolute bottom-16 sm:bottom-20 left-1/2 -translate-x-1/2 z-10 flex gap-1.5 sm:gap-2">
         {videos.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all ${
+            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all ${
               index === currentIndex
-                ? "bg-white w-8"
+                ? "bg-white w-6 sm:w-8"
                 : "bg-white/40 hover:bg-white/60"
             }`}
             aria-label={`Go to video ${index + 1}`}
@@ -187,8 +212,8 @@ export default function VideoCarousel() {
       </div>
 
       {/* Tagline */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-center pointer-events-none">
-        <p className="text-white/60 text-sm">
+      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 text-center pointer-events-none px-4">
+        <p className="text-white/60 text-xs sm:text-sm">
           Powered by AI.{" "}
           <span className="text-blue-400 font-semibold">Driven by Joy.</span>
         </p>

@@ -100,11 +100,11 @@ export default function About() {
       <div className="absolute inset-0 bg-black/40" />
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen flex items-center justify-center px-6 py-32">
-        <div className="max-w-3xl text-center space-y-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-8">ABOUT</h1>
+      <div className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 py-24 sm:py-32">
+        <div className="max-w-3xl text-center space-y-6 sm:space-y-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8">ABOUT</h1>
           
-          <div className="space-y-5 text-base md:text-lg leading-relaxed text-white/90">
+          <div className="space-y-4 sm:space-y-5 text-sm sm:text-base md:text-lg leading-relaxed text-white/90">
             <p>
               Joy is a production company built by people who have spent their careers making commercials.
             </p>
@@ -127,8 +127,8 @@ export default function About() {
           </div>
 
           {/* Tagline */}
-          <div className="pt-16">
-            <p className="text-white/50 text-lg md:text-xl">
+          <div className="pt-12 sm:pt-16">
+            <p className="text-white/50 text-base sm:text-lg md:text-xl">
               Powered by AI.{" "}
               <span className="text-blue-400 font-semibold">Driven by Joy.</span>
             </p>
