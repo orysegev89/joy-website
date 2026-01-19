@@ -51,10 +51,6 @@ export default function VideoCarousel() {
           muted={true}
           loop={true}
           playsInline
-          // Performance optimizations
-          preload="auto"
-          startTime={0}
-          preferPlayback="mse"
           // Hide ALL controls
           nohotkeys
           style={{
