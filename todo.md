@@ -67,3 +67,9 @@
 - [x] Hide all Mux player controls except center play button
 - [x] Remove player frame/chrome for cleaner look
 - [x] Only show play button when video is paused
+
+## Video Player Auto-Play Update
+- [x] Implement auto-play when video is shown
+- [x] Remove all visible controls (including play button)
+- [x] Add click-to-pause/play functionality
+- [x] Ensure no controls appear on hover or during playback

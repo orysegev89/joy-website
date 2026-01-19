@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import MuxPlayer from "@mux/mux-player-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { videos } from "@/data/videos";
 
 export default function VideoCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const playerRef = useRef<any>(null);
 
   const goToPrevious = () => {
     setCurrentIndex((prevIndex) =>
@@ -22,24 +23,35 @@ export default function VideoCarousel() {
     setCurrentIndex(index);
   };
 
+  const handleVideoClick = () => {
+    if (playerRef.current) {
+      if (playerRef.current.paused) {
+        playerRef.current.play();
+      } else {
+        playerRef.current.pause();
+      }
+    }
+  };
+
   const currentVideo = videos[currentIndex];
 
   return (
     <div className="relative w-full h-screen bg-black">
-      {/* Mux Video Player - Minimal UI */}
-      <div className="absolute inset-0">
+      {/* Mux Video Player - Auto-play with no controls */}
+      <div 
+        className="absolute inset-0 cursor-pointer"
+        onClick={handleVideoClick}
+      >
         <MuxPlayer
+          ref={playerRef}
           key={currentVideo.id}
           playbackId={currentVideo.muxPlaybackId}
           streamType="on-demand"
-          autoPlay={false}
-          muted={false}
-          loop={false}
-          // Minimal player controls - only center play button
-          primaryColor="#FFFFFF"
-          secondaryColor="#000000"
-          accentColor="#3B82F6"
-          // Hide all controls except the big play button
+          autoPlay="muted"
+          muted={true}
+          loop={true}
+          playsInline
+          // Hide ALL controls
           nohotkeys
           style={{
             width: "100%",
@@ -71,7 +83,7 @@ export default function VideoCarousel() {
       </button>
 
       {/* Video Info */}
-      <div className="absolute bottom-32 left-8 z-10 text-white">
+      <div className="absolute bottom-32 left-8 z-10 text-white pointer-events-none">
         <h2 className="text-4xl font-bold mb-2">{currentVideo.title}</h2>
         <p className="text-xl text-white/80">{currentVideo.director}</p>
       </div>
@@ -93,7 +105,7 @@ export default function VideoCarousel() {
       </div>
 
       {/* Tagline */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-center">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-center pointer-events-none">
         <p className="text-white/60 text-sm">
           Powered by AI.{" "}
           <span className="text-blue-400 font-semibold">Driven by Joy.</span>

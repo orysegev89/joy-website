@@ -175,14 +175,14 @@
     }
   }
 }
-/* Minimal Mux Player Styling */
+/* Minimal Mux Player Styling - Hide ALL controls */
 mux-player {
   --controls: none;
   --media-object-fit: cover;
   --media-object-position: center;
 }
 
-/* Hide all controls except center play button */
+/* Hide ALL controls including center play button */
 mux-player::part(bottom) {
   display: none !important;
 }
@@ -191,13 +191,13 @@ mux-player::part(top) {
   display: none !important;
 }
 
-/* Keep center play button visible */
 mux-player::part(center) {
-  opacity: 1 !important;
+  display: none !important;
 }
 
 /* Hide controls on hover */
 mux-player:hover::part(bottom),
-mux-player:hover::part(top) {
+mux-player:hover::part(top),
+mux-player:hover::part(center) {
   display: none !important;
 }
