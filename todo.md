@@ -51,3 +51,14 @@
 - [x] Add About page route to App.tsx
 - [x] Add Directors page route to App.tsx
 - [x] Add Contact page route to App.tsx
+
+## Logo Integration
+- [x] Update Navigation component to use real Joy Productions logo
+- [x] Ensure logo is properly sized and positioned in top-left
+
+## Mux Video Integration
+- [x] Install @mux/mux-player-react package
+- [x] Create video data structure with Mux playback IDs
+- [x] Update VideoCarousel to use Mux Player
+- [x] Add video titles and director names
+- [ ] Test video playback and carousel navigation

@@ -6,8 +6,12 @@ export default function Navigation() {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold text-white hover:opacity-80 transition-opacity">
-            Joy
+          <Link href="/" className="hover:opacity-80 transition-opacity">
+            <img 
+              src="/logo.png" 
+              alt="Joy Productions" 
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* Navigation Links */}
