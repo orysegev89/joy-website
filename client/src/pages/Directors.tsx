@@ -1,25 +1,31 @@
-import Navigation from "@/components/Navigation";
 import { Link } from "wouter";
+import Navigation from "@/components/Navigation";
 
-// Sample directors data - will be replaced with CMS data later
-const directors = [
+interface DirectorCard {
+  name: string;
+  slug: string;
+  quote: string;
+  image: string;
+}
+
+const directorCards: DirectorCard[] = [
   {
-    id: "1",
-    name: "Director One",
-    specialty: "Commercial & Brand",
-    imageUrl: "/images/director1.jpg",
+    name: "Axel Weirowski",
+    slug: "axel-weirowski",
+    quote: "\"Technology never replaces the narrative; it amplifies it.\" - Axel",
+    image: "/directors/axel-lion-jetski.png",
   },
   {
-    id: "2",
-    name: "Director Two",
-    specialty: "Narrative & Storytelling",
-    imageUrl: "/images/director2.jpg",
+    name: "Ella Uzan",
+    slug: "ella-uzan",
+    quote: "\"AI allows me to craft emotionally rich, symbolic narratives that would be impossible to create in the real world.\" - Ella",
+    image: "/directors/ella-binoculars.png",
   },
   {
-    id: "3",
-    name: "Director Three",
-    specialty: "Visual Effects",
-    imageUrl: "/images/director3.jpg",
+    name: "Maurus vom Scheidt",
+    slug: "maurus-vom-scheidt",
+    quote: "\"Working with AI feels like directing actors in a foreign country—unpredictable, surprising, and full of unexpected magic.\" - Maurus",
+    image: "/directors/maurus-portrait.png",
   },
 ];
 
@@ -29,28 +35,46 @@ export default function Directors() {
       <Navigation />
       
       <div className="pt-32 pb-16">
-        <div className="container mx-auto px-6">
-          <h1 className="text-5xl md:text-6xl font-bold mb-16 text-center">
-            Directors
-          </h1>
+        <div className="container max-w-7xl mx-auto px-6">
+          <h1 className="text-5xl md:text-6xl font-bold mb-16 text-center">DIRECTORS</h1>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {directors.map((director) => (
-              <Link key={director.id} href={`/directors/${director.id}`}>
-                <div className="group cursor-pointer">
-                  <div className="aspect-square bg-white/5 rounded-lg overflow-hidden mb-4 hover:bg-white/10 transition-colors">
-                    <div className="w-full h-full flex items-center justify-center text-white/40">
-                      {/* Placeholder for director image */}
-                      <span className="text-6xl">👤</span>
+          {/* Director Cards Grid */}
+          <div className="space-y-12 mb-16">
+            {directorCards.map((director) => (
+              <Link
+                key={director.slug}
+                href={`/directors/${director.slug}`}
+                className="block group"
+              >
+                <div className="relative overflow-hidden rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-300">
+                  <div className="grid md:grid-cols-2 gap-0">
+                    {/* Image */}
+                    <div className="relative aspect-video md:aspect-auto overflow-hidden">
+                      <img
+                        src={director.image}
+                        alt={director.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                    
+                    {/* Quote */}
+                    <div className="flex items-center justify-center p-8 md:p-12">
+                      <p className="text-xl md:text-2xl leading-relaxed text-white/90 italic">
+                        {director.quote}
+                      </p>
                     </div>
                   </div>
-                  <h3 className="text-xl font-semibold mb-1 group-hover:text-white/80 transition-colors">
-                    {director.name}
-                  </h3>
-                  <p className="text-white/60 text-sm">{director.specialty}</p>
                 </div>
               </Link>
             ))}
+          </div>
+
+          {/* Tagline */}
+          <div className="text-center mt-20">
+            <p className="text-white/60 text-base">
+              Powered by AI.{" "}
+              <span className="text-blue-400 font-semibold">Driven by Joy.</span>
+            </p>
           </div>
         </div>
       </div>

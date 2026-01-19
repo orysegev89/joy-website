@@ -84,3 +84,10 @@
 - [x] Update Joy logo to include "PRODUCTIONS" subtitle
 - [x] Match logo style from Keynote presentation
 - [x] Apply updated logo across all pages
+
+## Director Profile Pages
+- [x] Copy all portfolio images to project public folder
+- [x] Create directors data structure with bios and portfolio images
+- [x] Create individual director profile page component
+- [x] Add routing for /directors/[name] pages
+- [x] Test all three director pages (Ella, Maurus, Axel)

@@ -7,6 +7,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Directors from "./pages/Directors";
+import DirectorProfile from "./pages/DirectorProfile";
 import Contact from "./pages/Contact";
 
 function Router() {
@@ -16,6 +17,7 @@ function Router() {
       <Route path={"/"} component={Home} />
       <Route path={"/about"} component={About} />
       <Route path={"/directors"} component={Directors} />
+      <Route path={"/directors/:slug"} component={DirectorProfile} />
       <Route path={"/contact"} component={Contact} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
