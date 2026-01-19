@@ -91,3 +91,8 @@
 - [x] Create individual director profile page component
 - [x] Add routing for /directors/[name] pages
 - [x] Test all three director pages (Ella, Maurus, Axel)
+
+## Logo and Directors Page Fixes
+- [x] Update logo SVG to match Keynote design (stylized JOY with blue glowing O and star)
+- [x] Fix Directors page layout (quote left, image right pattern)
+- [x] Ensure logo appears consistently across all pages

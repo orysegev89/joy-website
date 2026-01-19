@@ -48,6 +48,13 @@ export default function Directors() {
               >
                 <div className="relative overflow-hidden rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-300">
                   <div className="grid md:grid-cols-2 gap-0">
+                    {/* Quote */}
+                    <div className="flex items-center justify-center p-8 md:p-12">
+                      <p className="text-xl md:text-2xl leading-relaxed text-white/90 italic">
+                        {director.quote}
+                      </p>
+                    </div>
+                    
                     {/* Image */}
                     <div className="relative aspect-video md:aspect-auto overflow-hidden">
                       <img
@@ -55,13 +62,6 @@ export default function Directors() {
                         alt={director.name}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                    </div>
-                    
-                    {/* Quote */}
-                    <div className="flex items-center justify-center p-8 md:p-12">
-                      <p className="text-xl md:text-2xl leading-relaxed text-white/90 italic">
-                        {director.quote}
-                      </p>
                     </div>
                   </div>
                 </div>

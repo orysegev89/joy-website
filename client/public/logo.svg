@@ -1,7 +1,34 @@
-<svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- JOY text -->
-  <text x="60" y="35" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="2">JOY</text>
+<svg width="200" height="80" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- J -->
+  <path d="M40 15 L55 15 L55 45 Q55 55 45 55 Q35 55 35 45" stroke="#9CA3AF" stroke-width="8" stroke-linecap="round" fill="none"/>
+  
+  <!-- O with glow effect -->
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="blueGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#60A5FA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- O circle with blue glow -->
+  <circle cx="95" cy="35" r="20" stroke="url(#blueGradient)" stroke-width="8" fill="none" filter="url(#glow)"/>
+  
+  <!-- Star sparkle on O -->
+  <g transform="translate(105, 15)">
+    <path d="M0,-6 L1.5,-1.5 L6,0 L1.5,1.5 L0,6 L-1.5,1.5 L-6,0 L-1.5,-1.5 Z" fill="#60A5FA" opacity="0.9"/>
+  </g>
+  
+  <!-- Y -->
+  <path d="M125 15 L140 35 L140 55" stroke="#9CA3AF" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <path d="M155 15 L140 35" stroke="#9CA3AF" stroke-width="8" stroke-linecap="round" fill="none"/>
   
   <!-- PRODUCTIONS text -->
-  <text x="60" y="55" font-family="Arial, sans-serif" font-size="10" font-weight="normal" fill="white" text-anchor="middle" letter-spacing="4">PRODUCTIONS</text>
+  <text x="40" y="72" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#6B7280" letter-spacing="4">PRODUCTIONS</text>
 </svg>
