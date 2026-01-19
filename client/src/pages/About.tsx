@@ -1,19 +1,61 @@
-import { useRef } from "react";
-import MuxPlayer from "@mux/mux-player-react";
+import { useRef, useEffect } from "react";
+import Hls from "hls.js";
 import Navigation from "@/components/Navigation";
 
 export default function About() {
-  const playerRef = useRef<any>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const hlsRef = useRef<Hls | null>(null);
 
   const handleVideoClick = () => {
-    if (playerRef.current) {
-      if (playerRef.current.paused) {
-        playerRef.current.play();
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
       } else {
-        playerRef.current.pause();
+        videoRef.current.pause();
       }
     }
   };
+
+  // Setup HLS and auto-play on mount
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const videoUrl = "https://stream.mux.com/h01ZJotR700003caBF4017apo8FTb2HPSvvHVYouR9aCWng.m3u8";
+
+    if (Hls.isSupported()) {
+      const hls = new Hls({
+        enableWorker: true,
+        lowLatencyMode: false,
+        backBufferLength: 90,
+      });
+      
+      hls.loadSource(videoUrl);
+      hls.attachMedia(video);
+      
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        video.play().catch(() => {
+          // Auto-play might be blocked
+        });
+      });
+
+      hlsRef.current = hls;
+    } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      // Native HLS support (Safari)
+      video.src = videoUrl;
+      video.addEventListener("loadedmetadata", () => {
+        video.play().catch(() => {
+          // Auto-play might be blocked
+        });
+      });
+    }
+
+    return () => {
+      if (hlsRef.current) {
+        hlsRef.current.destroy();
+      }
+    };
+  }, []);
 
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden">
@@ -24,18 +66,14 @@ export default function About() {
         className="absolute inset-0 cursor-pointer"
         onClick={handleVideoClick}
       >
-        <MuxPlayer
-          ref={playerRef}
-          playbackId="h01ZJotR700003caBF4017apo8FTb2HPSvvHVYouR9aCWng"
-          streamType="on-demand"
-          autoPlay="muted"
-          muted={true}
-          loop={true}
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
           playsInline
-          // Disable ALL controls
-          nohotkeys
           disablePictureInPicture
-          defaultHiddenCaptions
+          controlsList="nodownload nofullscreen noremoteplayback"
           style={{
             width: "100%",
             height: "100%",
@@ -51,9 +89,9 @@ export default function About() {
       {/* Content */}
       <div className="relative z-10 min-h-screen flex items-center justify-center px-6 py-32">
         <div className="max-w-3xl text-center space-y-8">
-          <h1 className="text-5xl md:text-6xl font-bold mb-12">ABOUT</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-8">ABOUT</h1>
           
-          <div className="space-y-6 text-lg md:text-xl leading-relaxed text-white/90">
+          <div className="space-y-5 text-base md:text-lg leading-relaxed text-white/90">
             <p>
               Joy is a production company built by people who have spent their careers making commercials.
             </p>
@@ -76,8 +114,8 @@ export default function About() {
           </div>
 
           {/* Tagline */}
-          <div className="pt-12">
-            <p className="text-white/60 text-base">
+          <div className="pt-16">
+            <p className="text-white/50 text-lg md:text-xl">
               Powered by AI.{" "}
               <span className="text-blue-400 font-semibold">Driven by Joy.</span>
             </p>

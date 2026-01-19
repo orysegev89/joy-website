@@ -1,11 +1,12 @@
-import { useState, useRef } from "react";
-import MuxPlayer from "@mux/mux-player-react";
+import { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Hls from "hls.js";
 import { videos } from "@/data/videos";
 
 export default function VideoCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const playerRef = useRef<any>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const hlsRef = useRef<Hls | null>(null);
 
   const goToPrevious = () => {
     setCurrentIndex((prevIndex) =>
@@ -24,37 +25,79 @@ export default function VideoCarousel() {
   };
 
   const handleVideoClick = () => {
-    if (playerRef.current) {
-      if (playerRef.current.paused) {
-        playerRef.current.play();
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
       } else {
-        playerRef.current.pause();
+        videoRef.current.pause();
       }
     }
   };
+
+  // Setup HLS and auto-play when video changes
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const currentVideo = videos[currentIndex];
+    const videoUrl = `https://stream.mux.com/${currentVideo.muxPlaybackId}.m3u8`;
+
+    // Clean up previous HLS instance
+    if (hlsRef.current) {
+      hlsRef.current.destroy();
+    }
+
+    if (Hls.isSupported()) {
+      const hls = new Hls({
+        enableWorker: true,
+        lowLatencyMode: false,
+        backBufferLength: 90,
+      });
+      
+      hls.loadSource(videoUrl);
+      hls.attachMedia(video);
+      
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        video.play().catch(() => {
+          // Auto-play might be blocked
+        });
+      });
+
+      hlsRef.current = hls;
+    } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      // Native HLS support (Safari)
+      video.src = videoUrl;
+      video.addEventListener("loadedmetadata", () => {
+        video.play().catch(() => {
+          // Auto-play might be blocked
+        });
+      });
+    }
+
+    return () => {
+      if (hlsRef.current) {
+        hlsRef.current.destroy();
+      }
+    };
+  }, [currentIndex]);
 
   const currentVideo = videos[currentIndex];
 
   return (
     <div className="relative w-full h-screen bg-black">
-      {/* Mux Video Player - Auto-play with no controls */}
+      {/* Native HTML5 Video with HLS.js - No controls */}
       <div 
         className="absolute inset-0 cursor-pointer"
         onClick={handleVideoClick}
       >
-        <MuxPlayer
-          ref={playerRef}
-          key={currentVideo.id}
-          playbackId={currentVideo.muxPlaybackId}
-          streamType="on-demand"
-          autoPlay="muted"
-          muted={true}
-          loop={true}
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
           playsInline
-          // Disable ALL controls
-          nohotkeys
           disablePictureInPicture
-          defaultHiddenCaptions
+          controlsList="nodownload nofullscreen noremoteplayback"
           style={{
             width: "100%",
             height: "100%",
