@@ -10,9 +10,9 @@
 - [x] Home page with hero section
 - [x] Video carousel component for home page
 - [x] About page with different background
-- [ ] Directors landing page
+- [x] Directors landing page
 - [ ] Individual director page template
-- [ ] Contact page with form
+- [x] Contact page with form
 
 ## Phase 3: Video Integration
 - [ ] Set up video player component
@@ -46,3 +46,8 @@
 - [ ] Create video schema
 - [ ] Connect frontend to CMS
 - [ ] Admin interface for adding directors
+
+## Immediate Fixes
+- [x] Add About page route to App.tsx
+- [x] Add Directors page route to App.tsx
+- [x] Add Contact page route to App.tsx

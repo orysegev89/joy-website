@@ -6,28 +6,20 @@ export default function Navigation() {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/">
-            <a className="text-2xl font-bold text-white hover:opacity-80 transition-opacity">
-              Joy
-            </a>
+          <Link href="/" className="text-2xl font-bold text-white hover:opacity-80 transition-opacity">
+            Joy
           </Link>
 
           {/* Navigation Links */}
           <div className="flex items-center gap-8">
-            <Link href="/about">
-              <a className="text-white/90 hover:text-white transition-colors text-sm uppercase tracking-wider">
-                About
-              </a>
+            <Link href="/about" className="text-white/90 hover:text-white transition-colors text-sm uppercase tracking-wider">
+              About
             </Link>
-            <Link href="/directors">
-              <a className="text-white/90 hover:text-white transition-colors text-sm uppercase tracking-wider">
-                Directors
-              </a>
+            <Link href="/directors" className="text-white/90 hover:text-white transition-colors text-sm uppercase tracking-wider">
+              Directors
             </Link>
-            <Link href="/contact">
-              <a className="text-white/90 hover:text-white transition-colors text-sm uppercase tracking-wider">
-                Contact
-              </a>
+            <Link href="/contact" className="text-white/90 hover:text-white transition-colors text-sm uppercase tracking-wider">
+              Contact
             </Link>
           </div>
         </div>
