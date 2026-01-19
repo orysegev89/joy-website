@@ -112,3 +112,10 @@
 - [x] Remove title and director text overlays from video slides that don't have taglines
 - [x] Only show text overlay when tagline exists
 - [x] Fix rhino image path - currently showing black background instead of image
+
+## Video Loading Performance Optimization
+- [x] Optimize HLS.js configuration for faster initial buffering
+- [x] Implement video preloading for carousel
+- [x] Optimize About page video loading
+- [x] Reduce time to first frame for all videos
+- [x] Test video loading speed on both pages

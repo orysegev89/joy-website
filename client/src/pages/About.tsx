@@ -26,8 +26,21 @@ export default function About() {
     if (Hls.isSupported()) {
       const hls = new Hls({
         enableWorker: true,
-        lowLatencyMode: false,
-        backBufferLength: 90,
+        lowLatencyMode: true,
+        backBufferLength: 30,
+        maxBufferLength: 10,
+        maxMaxBufferLength: 20,
+        maxBufferSize: 60 * 1000 * 1000, // 60 MB
+        maxBufferHole: 0.5,
+        highBufferWatchdogPeriod: 1,
+        nudgeOffset: 0.1,
+        nudgeMaxRetry: 3,
+        maxFragLookUpTolerance: 0.2,
+        liveSyncDurationCount: 3,
+        liveMaxLatencyDurationCount: 10,
+        startLevel: -1, // Auto start level for adaptive bitrate
+        autoStartLoad: true,
+        startPosition: 0,
       });
       
       hls.loadSource(videoUrl);
