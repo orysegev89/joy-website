@@ -168,3 +168,8 @@
 ## Dropdown Clickability Fix
 - [x] Ensure dropdown menu items are clickable and navigate properly
 - [x] Fix any z-index or pointer-events issues
+
+## Dropdown Navigation Fix
+- [x] Prevent Directors button from navigating to /directors page
+- [x] Show dropdown menu instead of navigating
+- [x] Keep "View All Directors" option in dropdown for full page access
