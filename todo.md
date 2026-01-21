@@ -173,3 +173,7 @@
 - [x] Prevent Directors button from navigating to /directors page
 - [x] Show dropdown menu instead of navigating
 - [x] Keep "View All Directors" option in dropdown for full page access
+
+## Dropdown Hover Persistence Fix
+- [x] Keep dropdown open when cursor moves from button to dropdown menu
+- [x] Only close dropdown when cursor leaves entire dropdown area

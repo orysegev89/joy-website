@@ -38,7 +38,8 @@ export default function Navigation() {
               </button>
               
               {isDirectorsOpen && (
-                <div className="absolute top-full left-0 mt-2 bg-black/95 backdrop-blur-sm border border-white/10 rounded-md shadow-xl min-w-[200px] py-2 z-[100]">
+                <div className="absolute top-full left-0 pt-4 z-[100]">
+                  <div className="bg-black/95 backdrop-blur-sm border border-white/10 rounded-md shadow-xl min-w-[200px] py-2">
                   <Link
                     href="/directors"
                     className="block px-4 py-2 text-white/80 hover:text-white hover:bg-white/10 transition-colors text-sm font-semibold border-b border-white/10"
@@ -56,6 +57,7 @@ export default function Navigation() {
                       {director.name}
                     </Link>
                   ))}
+                  </div>
                 </div>
               )}
             </div>
