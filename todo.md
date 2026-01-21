@@ -136,3 +136,8 @@
 
 ## Typography Adjustments
 - [x] Increase "Powered by AI. Driven by Joy." tagline size by 50%
+
+## Layout Adjustments
+- [x] Reposition carousel tagline to upper-left area to match Keynote presentation
+- [x] Make tagline text larger and left-aligned
+- [x] Ensure proper spacing from top and left edges

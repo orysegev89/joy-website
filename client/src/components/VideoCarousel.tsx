@@ -169,8 +169,8 @@ export default function VideoCarousel() {
 
       {/* Tagline Text Overlay - Only show if slide has tagline */}
       {currentVideo.tagline && (
-        <div className="absolute left-4 right-4 md:left-16 md:right-auto top-1/2 -translate-y-1/2 z-10 max-w-2xl pointer-events-none">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-white leading-tight whitespace-pre-line">
+        <div className="absolute left-4 sm:left-6 md:left-12 lg:left-16 top-24 sm:top-28 md:top-32 lg:top-36 z-10 max-w-4xl pointer-events-none">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-white leading-tight whitespace-pre-line">
             {currentVideo.tagline}
           </h1>
         </div>
@@ -196,8 +196,8 @@ export default function VideoCarousel() {
 
 
       {/* Tagline */}
-      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 text-center pointer-events-none px-4">
-        <p className="text-white/60 text-sm sm:text-base md:text-lg">
+      <div className="absolute bottom-8 sm:bottom-12 md:bottom-16 left-4 sm:left-6 md:left-12 lg:left-16 z-10 pointer-events-none">
+        <p className="text-white/60 text-base sm:text-lg md:text-xl lg:text-2xl">
           Powered by AI.{" "}
           <span className="text-blue-400 font-semibold">Driven by Joy.</span>
         </p>
