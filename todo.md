@@ -182,3 +182,18 @@
 - [x] Remove "View All Directors" from dropdown (redundant)
 - [x] Make "DIRECTORS" button navigate to /directors page on click
 - [x] Keep dropdown showing on hover
+
+## Director Page Complete Rebuild (Match Keynote 100%)
+- [x] Change background to pure black (#000000)
+- [x] Center all content horizontally
+- [x] Add director name at top - large, white, uppercase, centered, wide tracking
+- [x] Create narrow bio container (max-w-3xl or similar)
+- [x] Style bio text - white, centered, proper line height (1.6-1.8)
+- [x] Update Axel's bio to exact Keynote content (4 paragraphs)
+- [x] Create 2x2 portfolio grid below bio
+- [x] Add proper spacing: top (60-80px), name-to-bio (40px), bio-to-portfolio (60px)
+- [x] Ensure mobile responsiveness for all elements
+- [x] QA Axel Weirowski page - MATCHES KEYNOTE 100%
+- [x] QA Ella Uzan page - CONSISTENT LAYOUT
+- [x] QA Maurus vom Scheidt page - CONSISTENT LAYOUT
+- [x] Verify all three pages have consistent layout and spacing

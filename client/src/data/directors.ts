@@ -33,13 +33,12 @@ export const directors: Director[] = [
     id: "axel-weirowski",
     name: "Axel Weirowski",
     slug: "axel-weirowski",
-    bio: "Axel Weirowski is a director known for his bold, cinematic approach to commercial filmmaking. With a background in both traditional production and AI-driven workflows, Axel pushes creative boundaries while maintaining a strong focus on storytelling. His work is characterized by dynamic visuals, unexpected juxtapositions, and a playful sense of imagination that brings brands to life in memorable ways.",
+    bio: "Axel is a commercial and film director working at the intersection of cinematic storytelling and emerging technology. Since 2005, he has directed films and campaigns for global brands including BMW, Mercedes, Coca-Cola, Burger King, Lufthansa, Nokia, and others.\n\nHis work has received international recognition across major industry awards and is known for transforming brand identities into cinematic experiences with strong visual language and narrative clarity.\n\nOver the past four years, Axel has fully immersed himself in AI driven filmmaking, delivering large scale commercial productions for major clients. Through hands on experience, he has developed a practical understanding of AI's creative potential alongside its current constraints in a rapidly evolving AI creative landscape.\n\nFor Axel, AI is a tool of liberation, it expands imagination, democratizes craft, and enables visual worlds that were previously impossible or prohibitively costly to realize. When guided by human intuition and storytelling discipline, AI removes traditional production barriers and allows ideas to evolve in real time. The technology never replaces the narrative; it amplifies it.",
     portfolioImages: [
-      "/directors/axel-stadium.png",
-      "/directors/axel-lion-jetski.png",
-      "/directors/axel-sculptor.png",
       "/directors/axel-fan-crowd.png",
-      "/directors/axel-rhino-astronaut.png",
+      "/directors/axel-lion-jetski.png",
+      "/directors/axel-stadium.png",
+      "/directors/axel-sculptor.png",
     ],
   },
 ];
