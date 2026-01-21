@@ -154,3 +154,8 @@
 ## Powered by AI Tagline Fixes
 - [x] Move "Powered by AI. Driven by Joy." to bottom center (not bottom-left)
 - [x] Increase font size to match Keynote screenshots
+
+## Logo Update
+- [x] Extract logo from PDF file
+- [x] Ensure transparent background
+- [x] Replace current logo in website

@@ -8,7 +8,7 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/" className="hover:opacity-80 transition-opacity">
             <img 
-              src="/logo.svg" 
+              src="/logo.png" 
               alt="Joy Productions" 
               className="h-12 sm:h-14 md:h-16 w-auto"
             />
