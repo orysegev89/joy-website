@@ -164,3 +164,7 @@
 - [x] Convert Directors nav item to dropdown menu
 - [x] List all directors/producers in dropdown
 - [x] Ensure mobile-friendly dropdown behavior
+
+## Dropdown Clickability Fix
+- [x] Ensure dropdown menu items are clickable and navigate properly
+- [x] Fix any z-index or pointer-events issues
