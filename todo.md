@@ -159,3 +159,8 @@
 - [x] Extract logo from PDF file
 - [x] Ensure transparent background
 - [x] Replace current logo in website
+
+## Directors Dropdown Menu
+- [x] Convert Directors nav item to dropdown menu
+- [x] List all directors/producers in dropdown
+- [x] Ensure mobile-friendly dropdown behavior
