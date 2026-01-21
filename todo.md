@@ -141,3 +141,12 @@
 - [x] Reposition carousel tagline to upper-left area to match Keynote presentation
 - [x] Make tagline text larger and left-aligned
 - [x] Ensure proper spacing from top and left edges
+
+## Text Size Corrections
+- [x] Reduce tagline text size to match Keynote (currently too large)
+- [x] Make container narrower for taller, narrower text block
+- [x] Match exact proportions from Keynote presentation
+
+## Rhino Slide Tagline
+- [x] Add tagline to rhino slide: "We work with brands who are ready to embrace AI without abandoning the creative process they trust."
+- [x] Ensure text matches same narrow container and size as other slides

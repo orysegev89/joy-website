@@ -169,8 +169,8 @@ export default function VideoCarousel() {
 
       {/* Tagline Text Overlay - Only show if slide has tagline */}
       {currentVideo.tagline && (
-        <div className="absolute left-4 sm:left-6 md:left-12 lg:left-16 top-24 sm:top-28 md:top-32 lg:top-36 z-10 max-w-4xl pointer-events-none">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-white leading-tight whitespace-pre-line">
+        <div className="absolute left-4 sm:left-6 md:left-12 lg:left-16 top-24 sm:top-28 md:top-32 lg:top-36 z-10 max-w-xl pointer-events-none">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white leading-snug whitespace-pre-line">
             {currentVideo.tagline}
           </h1>
         </div>
