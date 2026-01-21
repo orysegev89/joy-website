@@ -130,3 +130,6 @@
 - [x] Test all pages on mobile viewport (375px, 414px widths)
 - [x] Ensure text is readable and properly sized on mobile
 - [x] Fix navigation and layout centering on mobile
+
+## UI Cleanup
+- [x] Remove carousel dot indicators from homepage for cleaner look

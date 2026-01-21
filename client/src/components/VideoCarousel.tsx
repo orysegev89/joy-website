@@ -195,22 +195,6 @@ export default function VideoCarousel() {
 
 
 
-      {/* Dot Indicators */}
-      <div className="absolute bottom-16 sm:bottom-20 left-1/2 -translate-x-1/2 z-10 flex gap-1.5 sm:gap-2">
-        {videos.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all ${
-              index === currentIndex
-                ? "bg-white w-6 sm:w-8"
-                : "bg-white/40 hover:bg-white/60"
-            }`}
-            aria-label={`Go to video ${index + 1}`}
-          />
-        ))}
-      </div>
-
       {/* Tagline */}
       <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 text-center pointer-events-none px-4">
         <p className="text-white/60 text-xs sm:text-sm">
