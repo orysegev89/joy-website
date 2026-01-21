@@ -177,3 +177,8 @@
 ## Dropdown Hover Persistence Fix
 - [x] Keep dropdown open when cursor moves from button to dropdown menu
 - [x] Only close dropdown when cursor leaves entire dropdown area
+
+## Directors Button Navigation
+- [x] Remove "View All Directors" from dropdown (redundant)
+- [x] Make "DIRECTORS" button navigate to /directors page on click
+- [x] Keep dropdown showing on hover

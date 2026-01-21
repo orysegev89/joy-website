@@ -29,24 +29,17 @@ export default function Navigation() {
               onMouseEnter={() => setIsDirectorsOpen(true)}
               onMouseLeave={() => setIsDirectorsOpen(false)}
             >
-              <button
-                onClick={() => setIsDirectorsOpen(!isDirectorsOpen)}
-                className="text-white/90 hover:text-white transition-colors text-xs sm:text-sm uppercase tracking-wider flex items-center gap-1 bg-transparent border-none cursor-pointer"
+              <Link
+                href="/directors"
+                className="text-white/90 hover:text-white transition-colors text-xs sm:text-sm uppercase tracking-wider flex items-center gap-1"
               >
                 Directors
                 <ChevronDown className="w-3 h-3" />
-              </button>
+              </Link>
               
               {isDirectorsOpen && (
                 <div className="absolute top-full left-0 pt-4 z-[100]">
                   <div className="bg-black/95 backdrop-blur-sm border border-white/10 rounded-md shadow-xl min-w-[200px] py-2">
-                  <Link
-                    href="/directors"
-                    className="block px-4 py-2 text-white/80 hover:text-white hover:bg-white/10 transition-colors text-sm font-semibold border-b border-white/10"
-                    onClick={() => setIsDirectorsOpen(false)}
-                  >
-                    View All Directors
-                  </Link>
                   {directors.map((director) => (
                     <Link
                       key={director.id}
