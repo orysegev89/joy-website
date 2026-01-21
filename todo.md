@@ -133,3 +133,6 @@
 
 ## UI Cleanup
 - [x] Remove carousel dot indicators from homepage for cleaner look
+
+## Typography Adjustments
+- [x] Increase "Powered by AI. Driven by Joy." tagline size by 50%
