@@ -150,3 +150,7 @@
 ## Rhino Slide Tagline
 - [x] Add tagline to rhino slide: "We work with brands who are ready to embrace AI without abandoning the creative process they trust."
 - [x] Ensure text matches same narrow container and size as other slides
+
+## Powered by AI Tagline Fixes
+- [x] Move "Powered by AI. Driven by Joy." to bottom center (not bottom-left)
+- [x] Increase font size to match Keynote screenshots

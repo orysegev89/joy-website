@@ -196,8 +196,8 @@ export default function VideoCarousel() {
 
 
       {/* Tagline */}
-      <div className="absolute bottom-8 sm:bottom-12 md:bottom-16 left-4 sm:left-6 md:left-12 lg:left-16 z-10 pointer-events-none">
-        <p className="text-white/60 text-base sm:text-lg md:text-xl lg:text-2xl">
+      <div className="absolute bottom-8 sm:bottom-12 md:bottom-16 left-1/2 -translate-x-1/2 z-10 pointer-events-none text-center">
+        <p className="text-white/60 text-lg sm:text-xl md:text-2xl lg:text-3xl">
           Powered by AI.{" "}
           <span className="text-blue-400 font-semibold">Driven by Joy.</span>
         </p>
